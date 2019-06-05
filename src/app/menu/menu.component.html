@@ -1,0 +1,70 @@
+<div class="col-md-3">
+  <div [ngClass]="(showMenu) ? 'header affix active' : 'header affix'">
+    <div class="table">
+      <div class="table-cell">
+        <!-- Logo -->
+        <div class="logo">
+          <a href="index-2.html">BackPack</a>
+          <img [src]="imageURL" alt="Post">
+        </div>
+        <!-- End Logo -->
+
+        <!-- Navigation -->
+        <div class="main-menu">
+          <nav>
+            <ul class="menu-list">
+              <li (click)="selectTab('MyThings')"
+                  [ngClass]="(selectedTab=='MyThings')?'active':''">
+                <a>MyThings</a>
+              </li>
+              <li (click)="selectTab('AboutMe')"
+                  [ngClass]="(selectedTab=='AboutMe')?'active':''">
+                <a>AboutMe</a>
+              </li>
+              <li (click)="selectTab('CatchMe')"
+                  [ngClass]="(selectedTab=='CatchMe')?'active':''">
+                <a>CatchMe</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- End Navigation -->
+
+        <!-- Socials -->
+        <div class="socials">
+          <a href="#" title="Linkedin">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="#" title="Facebook">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="#" title="Google Plus">
+            <i class="fab fa-google-plus-square"></i>
+          </a>
+        </div>
+        <div class="box-search">
+          <div class="table">
+            <div class="table-cell">
+              <div class="container">
+                <form class="search-form" action="#" method="get">
+                  <input type="search" name="s" class="search-field"
+                         placeholder="Type &amp; hit enter" value="" title="Search">
+                  <div class="kd-close">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Socials -->
+
+        <div class="copyright">
+          <p>
+            BackPack @ 2020. Design by BackPack
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

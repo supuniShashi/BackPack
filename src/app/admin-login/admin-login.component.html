@@ -1,0 +1,11 @@
+<div class="toast_wrapper" [ngClass]="(staticAdminLogin)?'show':''">
+  <div class="toast" [ngClass]="(staticAdminLogin)?'show':''">
+    <span class="admin__inputs">
+      <input class="admin__login__input" type="text" placeholder="User Name" [(ngModel)]="adminUserName">
+      <input class="admin__login__input" type="password" placeholder="Password" [(ngModel)]="adminPassword">
+    </span>
+    <div class="button">
+      <button (click)="clickGo()">Go</button>
+    </div>
+  </div>
+</div>

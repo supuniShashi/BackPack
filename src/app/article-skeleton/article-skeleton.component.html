@@ -1,0 +1,80 @@
+<div class="col-md-9 col-md-offset-3">
+  <div class="projects">
+    <article class="post">
+      <div class="post-media">
+
+        <!-- Image Remove Button -->
+        <span *ngIf="imageURL && (!(percentage | async | number)) && !disableInputFields" (click)="removeImage()"
+              class="close_btn">
+          <i class="fas fa-times"></i>
+        </span>
+        <!-- End Image Remove Button -->
+
+        <!-- Image Drop Zone -->
+        <div *ngIf="!imageURL" class="drop-zone" dropZone
+             (hovered)="toggleHover($event)"
+             (dropped)="dropImage($event)"
+             [class.on]="isHovering">
+          <h2 class="title">Add Article Image</h2>
+          <p>Drag and Drop a File</p>
+          <div class="file">
+            <input class="file-input" type="file" (change)="chooseImageFile($event)">
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fa fa-upload"></i>
+              </span>
+              <span class="file-label">or choose a file</span>
+            </span>
+          </div>
+        </div>
+        <!-- End Image Drop Zone -->
+
+        <!-- Loaded Image -->
+        <a *ngIf="imageURL">
+          <img [src]="imageURL" alt="Post">
+        </a>
+        <!-- End Loaded Image -->
+
+        <!-- Uploading Image To online Storage -->
+        <span *ngIf="imageURL && percentage" class="uploading_img_size">
+          <span *ngIf="(snapshot | async) as snap">{{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }}</span>
+          {{ percentage | async | number }}%
+        </span>
+        <!-- End Uploading Image To online Storage -->
+
+        <progress *ngIf="percentage" class="fs-progress" [value]="percentage | async" max="100"></progress>
+
+      </div>
+      <div class="post-content">
+        <h2 class="title">
+          <input type="text" placeholder="Enter article name" [(ngModel)]="articleName"
+                 [disabled]="disableInputFields"/>
+        </h2>
+
+        <!-- Post Details -->
+        <div class="post-details">
+          <input style="font-size: 14px" type="text" placeholder="Please enter date: ( Ex: October 9, 2017 )"
+                 [(ngModel)]="articleDate" [disabled]="disableInputFields"/>
+        </div>
+        <!-- End Post Details -->
+
+        <!-- The Content -->
+        <div class="the-excerpt">
+          <p>
+            <textarea style="max-width: 100%; min-width: 100%;" class="form-control rounded-0" rows="10"
+                      placeholder="Write something about article." [(ngModel)]="articleDescription"
+                      [disabled]="disableInputFields"></textarea>
+          </p>
+        </div>
+        <!-- End The Content -->
+        <div class="push-button">
+          <button (click)="clickPushButton(buttonText)">{{buttonText}}</button>
+        </div>
+
+      </div>
+    </article>
+  </div>
+  <hr>
+  <app-spinner [disabledInput]="spinner_disabledInput" [inputValue]="spinner_inputValue" [minValue]="spinner_minValue"
+               [maxValue]="spinner_maxValue"></app-spinner>
+</div>

@@ -1,0 +1,67 @@
+<app-toast *ngIf="!isPageLoading"></app-toast>
+
+<app-admin-login *ngIf="!isPageLoading" (goAdminFlow)="goAdminFlow()"></app-admin-login>
+
+<div class="admin-box-wrapper">
+  <div class="admin-box" ButtonHold (holdTime)="adminLogin($event)"></div>
+</div>
+
+<div *ngIf="!adminMode" id="main-content">
+
+  <app-mobile-menu *ngIf="!isPageLoading" (showMobileMenu)="clickMobileMenubtn($event)"></app-mobile-menu>
+
+  <div *ngIf="!isPageLoading" class="container">
+    <div class="row">
+
+      <app-article-container [@fadeAnimation] *ngIf="selectedTab=='MyThings'"
+                             [articleCollection]="articleCollection"></app-article-container>
+      <app-about-me [@fadeAnimation] *ngIf="selectedTab=='AboutMe'"></app-about-me>
+      <app-menu (selectNewTab)="changeContent($event)" [showMenu]="showMenu"></app-menu>
+
+      <app-pageination (currentPage)="currentPageNumber($event)" [start]="paginationStart" [end]="paginationEnd"
+                       *ngIf="selectedTab=='MyThings'"></app-pageination>
+
+    </div>
+  </div>
+
+  <app-footer *ngIf="!isPageLoading"></app-footer>
+
+  <app-loader [isLoading]="isPageLoading"></app-loader>
+
+</div>
+
+
+<!-- Admin Page-->
+<div *ngIf="adminMode" id="admin-content">
+
+  <app-mobile-menu *ngIf="!isPageLoading" (showMobileMenu)="clickMobileMenubtn($event)"></app-mobile-menu>
+
+  <div *ngIf="!isPageLoading" class="container">
+    <div class="row">
+      <app-admin-menu (adminMenuSelectNewTab)="adminMenuChangeContent($event)" [showMenu]="showMenu"></app-admin-menu>
+
+      <app-article-skeleton [@fadeAnimation] [buttonText]="'Push'" *ngIf="adminMenuSelectedTab=='Insert'"
+                            [spinner_disabledInput]="true"
+                            [spinner_inputValue]="numberOfArticles + 1"></app-article-skeleton>
+      <app-article-skeleton [@fadeAnimation] [buttonText]="'Update'" *ngIf="adminMenuSelectedTab=='Update'"
+                            [spinner_inputValue]="1" [spinner_minValue]="1"
+                            [spinner_maxValue]="numberOfArticles"
+                            [imageURL]="imageURL"
+                            [articleName]="articleName"
+                            [articleDate]="articleDate"
+                            [articleDescription]="articleDescription"></app-article-skeleton>
+      <app-article-skeleton [@fadeAnimation] [buttonText]="'Delete'" [disableInputFields]="true"
+                            *ngIf="adminMenuSelectedTab=='Delete'" [spinner_inputValue]="1"
+                            [spinner_minValue]="1" [spinner_maxValue]="numberOfArticles"
+                            [imageURL]="imageURL"
+                            [articleName]="articleName"
+                            [articleDate]="articleDate"
+                            [articleDescription]="articleDescription"
+                            [fullArticle]="fullArticle"></app-article-skeleton>
+
+    </div>
+  </div>
+
+  <app-loader [isLoading]="isPageLoading"></app-loader>
+
+</div>

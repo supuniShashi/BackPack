@@ -1,0 +1,42 @@
+<div class="col-md-3">
+  <div [ngClass]="(showMenu) ? 'header affix active' : 'header affix'">
+    <div class="table">
+      <div class="table-cell">
+        <!-- Logo -->
+        <div class="logo">
+          <a href="index-2.html">BackPack</a>
+          <img [src]="imageURL" alt="Post">
+        </div>
+        <!-- End Logo -->
+
+        <!-- Navigation -->
+        <div class="main-menu">
+          <nav>
+            <ul class="menu-list">
+              <li (click)="adminMenuSelectTab('Insert')"
+                  [ngClass]="(adminMenuSelectedTab=='Insert')?'active':''">
+                <a>Insert</a>
+              </li>
+              <li (click)="adminMenuSelectTab('Update')"
+                  [ngClass]="(adminMenuSelectedTab=='Update')?'active':''">
+                <a>Update</a>
+              </li>
+              <li (click)="adminMenuSelectTab('Delete')"
+                  [ngClass]="(adminMenuSelectedTab=='Delete')?'active':''">
+                <a>Delete</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- End Navigation -->
+
+        <div class="copyright admin">
+          <p>
+            BackPack @ 2020. Design by BackPack
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

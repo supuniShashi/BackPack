@@ -1,0 +1,24 @@
+<!-- Mobile Menu -->
+<div class="mobile">
+  <div class="container">
+
+    <!-- Mobile -->
+    <div (click)="clickMobileMenu()" class="menu-mobile">
+      <span class="item item-1"></span>
+      <span class="item item-2"></span>
+      <span class="item item-3"></span>
+    </div>
+    <!-- End Mobile -->
+
+    <!-- Logo -->
+    <div class="logo">
+      <a>BackPack</a>
+    </div>
+    <!-- End Logo -->
+
+  </div>
+</div>
+
+<div (click)="mobileMenuButtonStatus = false; showMobileMenu.emit(false)"
+     [ngClass]="(mobileMenuButtonStatus) ? 'hide-menu active' : 'hide-menu'"></div>
+<!-- End Mobile Menu -->
