@@ -3,7 +3,8 @@
 <app-admin-login *ngIf="!isPageLoading" (goAdminFlow)="goAdminFlow()"></app-admin-login>
 
 <div class="admin-box-wrapper">
-  <div class="admin-box" ButtonHold (holdTime)="adminLogin($event)"></div>
+  <div class="admin-box" style="background-color: #e2b22b" ButtonHold (holdTime)="adminLogin($event)">LOGIN
+  </div>
 </div>
 
 <div *ngIf="!adminMode" id="main-content">
