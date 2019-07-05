@@ -7,31 +7,32 @@
   </div>
 </div>
 
-<div *ngIf="!adminMode" id="main-content">
+<!--<div *ngIf="!adminMode" id="main-content">-->
 
-  <app-mobile-menu *ngIf="!isPageLoading" (showMobileMenu)="clickMobileMenubtn($event)"></app-mobile-menu>
+  <!--<app-mobile-menu *ngIf="!isPageLoading" (showMobileMenu)="clickMobileMenubtn($event)"></app-mobile-menu>-->
 
-  <div *ngIf="!isPageLoading" class="container">
-    <div class="row">
+  <!--<div *ngIf="!isPageLoading" class="container">-->
+    <!--<div class="row">-->
 
-      <app-article-container [@fadeAnimation] *ngIf="selectedTab=='MyThings'"
-                             [articleCollection]="articleCollection"></app-article-container>
-      <app-about-me [@fadeAnimation] *ngIf="selectedTab=='AboutMe'"></app-about-me>
-      <app-menu (selectNewTab)="changeContent($event)" [showMenu]="showMenu"></app-menu>
+      <!--<app-article-container [@fadeAnimation] *ngIf="selectedTab=='MyThings'"-->
+                             <!--[articleCollection]="articleCollection"></app-article-container>-->
+      <!--&lt;!&ndash;<app-about-me [@fadeAnimation] *ngIf="selectedTab=='AboutMe'"></app-about-me>&ndash;&gt;-->
+      <!--<app-menu (selectNewTab)="changeContent($event)" [showMenu]="showMenu"></app-menu>-->
 
-      <app-pageination (currentPage)="currentPageNumber($event)" [start]="paginationStart" [end]="paginationEnd"
-                       *ngIf="selectedTab=='MyThings'"></app-pageination>
+      <!--<app-pageination (currentPage)="currentPageNumber($event)" [start]="paginationStart" [end]="paginationEnd"-->
+                       <!--*ngIf="selectedTab=='MyThings'"></app-pageination>-->
 
-    </div>
-  </div>
+    <!--</div>-->
+  <!--</div>-->
 
-  <app-footer *ngIf="!isPageLoading"></app-footer>
+  <!--<app-footer *ngIf="!isPageLoading"></app-footer>-->
 
-  <app-loader [isLoading]="isPageLoading"></app-loader>
+  <!--<app-loader [isLoading]="isPageLoading"></app-loader>-->
 
-</div>
+<!--</div>-->
+<backPackHome *ngIf="isHomePage"></backPackHome>
 
-
+<router-outlet></router-outlet>
 <!-- Admin Page-->
 <div *ngIf="adminMode" id="admin-content">
 

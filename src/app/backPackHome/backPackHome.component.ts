@@ -1,34 +1,22 @@
-import {Component, Input} from '@angular/core';
-import {trigger, state, style, transition, animate} from '@angular/animations';
-import {AdminLoginComponent} from "./admin-login/admin-login.component";
-import {AngularFirestore} from "angularfire2/firestore";
-import {ArticleBody} from "./object-models/article";
-import {AngularFirestoreCollection} from "@angular/fire/firestore";
-import {Observable} from "rxjs/index";
-import {SpinnerService} from "./spinner/spinner-service.service";
-import {AuthService} from "./auth-service/auth.service";
+import {Component, NgModule, OnInit} from '@angular/core';
+import {Observable} from "rxjs";
+import {AuthService} from "../auth-service/auth.service";
+import {SpinnerService} from "../spinner/spinner-service.service";
+import {ArticleBody} from "../object-models/article";
+import {AdminLoginComponent} from "../admin-login/admin-login.component";
+import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/firestore";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  animations: [
-    trigger('fadeAnimation', [
-      state('in', style({opacity: 1})),
-      transition(':enter', [
-        style({opacity: 0}),
-        animate(200)
-      ])
-    ]),
-  ]
+  selector: 'backPackHome',
+  templateUrl: './backPackHome.component.html',
 })
-export class AppComponent {
+export class BackPackHomeComponent implements OnInit {
 
   adminMode: boolean = false;
 
   showMenu: boolean = false;
   isPageLoading: boolean = true;
-  isHomePage: boolean = true;
   selectedTab: string = 'MyThings';
   adminMenuSelectedTab: string = 'Insert';
 
@@ -50,6 +38,7 @@ export class AppComponent {
     this.articleCollectionFB = fireStore.collection('articles', ref => {
       return ref.orderBy('articleNumber');
     });
+
     this.article = this.articleCollectionFB.valueChanges();
 
     this.article.subscribe((res) => {
@@ -63,21 +52,15 @@ export class AppComponent {
       console.log(error);
     })
 
+
     setTimeout(() => {
       this.isPageLoading = false;
     }, 3000);
+  }
 
+  ngOnInit() {
 
-    var urlParams = new URLSearchParams(window.location.search);
-
-    // console.log(urlParams.has('post')); // true
-    // console.log(urlParams.get('action')); // "edit"
-    // console.log(urlParams.getAll('action')); // ["edit"]
-    // console.log(urlParams.toString()); // "?post=1234&action=edit"
-    // console.log(urlParams.append('active', '1'));
-    if (urlParams.has('searchRef')) {
-      this.isHomePage = false;
-    }
+    console.log("homePage")
   }
 
   clickMobileMenubtn(event) {

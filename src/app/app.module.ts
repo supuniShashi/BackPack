@@ -9,7 +9,7 @@ import {MobileMenuComponent} from './mobile-menu/mobile-menu.component';
 import {MenuComponent} from './menu/menu.component';
 import {PageinationComponent} from './pagination/pagination.component';
 import {FooterComponent} from './footer/footer.component';
-import {AboutMeComponent} from './about-me/about-me.component';
+import {HotelComponent} from './hotels/hotels.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AdminMenuComponent} from './admin-menu/admin-menu.component';
 import {SpinnerComponent} from './spinner/spinner.component';
@@ -26,6 +26,25 @@ import {AdminLoginComponent} from './admin-login/admin-login.component';
 import {AuthService} from "./auth-service/auth.service";
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {RouterModule, Routes} from "@angular/router";
+import {BackPackHomeComponent} from "./backPackHome/backPackHome.component";
+
+
+const appRoutes: Routes = [
+  {path: 'hotel', component: HotelComponent}
+
+  // {path: 'passengers', loadChildren: './surf-fz-passengers/surf-fz-passengers.module#SurfFZPassengersModule'},
+  // {path: 'services', component: SurfFZServicesComponent},
+  // {path: 'payment', loadChildren: './surf-fz-payment/surf-fz-payment.module#SurfFZPaymentModule'},
+  // {
+  //   path: 'partner-onboard',
+  //   loadChildren: './yas-b2b-partner-onboard/yas-partner-onboard.module#YasPartnerOnboardModule'
+  // },
+  // {path: 'subuser-onboard', loadChildren: './yas-sub-user-onboard/yas-sub-user-onboard.module#YasSubUserOnboardModule'},
+  // {path: 'edit-profile', component: EditProfileComponent},
+  // {path: '**', component: SurfFZ404Component}
+];
+
 
 @NgModule({
   declarations: [
@@ -37,7 +56,8 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
     MenuComponent,
     PageinationComponent,
     FooterComponent,
-    AboutMeComponent,
+    HotelComponent,
+    BackPackHomeComponent,
     AdminMenuComponent,
     SpinnerComponent,
     ToastComponent,
@@ -48,6 +68,8 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
     AdminLoginComponent
   ],
   imports: [
+    RouterModule.forRoot(appRoutes, {}),
+    RouterModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,

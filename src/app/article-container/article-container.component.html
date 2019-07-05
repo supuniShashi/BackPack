@@ -3,6 +3,9 @@
     <app-article [imageURL]="article.imageURL"
                  [articleDate]="article.articleDate"
                  [articleName]="article.articleName"
-                 [articleDescription]="article.articleDescription"></app-article>
+                 [articleDescription]="article.articleDescription"
+                 [hotelRef]="article.hotelRef"
+                 (proceed)="selectHotel($event)"
+    ></app-article>
   </div>
 </div>

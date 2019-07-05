@@ -19,4 +19,12 @@ export class ArticleContainerComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  selectHotel(hotelRef: string){
+    localStorage.setItem('hotelRef', hotelRef);
+    let url = '/hotel?locale=' + 'en' + '&searchRef=' + hotelRef
+
+    location.href = url;
+
+  }
 }

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-article',
@@ -11,11 +11,19 @@ export class ArticleComponent implements OnInit {
   @Input() articleName: string;
   @Input() articleDate: string;
   @Input() articleDescription: string;
+  @Input() hotelRef: string;
+  @Output() proceed = new EventEmitter();
 
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  bookNow()
+  {
+    this.proceed.emit(this.hotelRef);
+    console.log('this.hotelRef',this.hotelRef);
   }
 
 }

@@ -1,0 +1,23 @@
+<div *ngIf="!adminMode" id="main-content">
+
+  <app-mobile-menu *ngIf="!isPageLoading" (showMobileMenu)="clickMobileMenubtn($event)"></app-mobile-menu>
+
+  <div *ngIf="!isPageLoading" class="container">
+    <div class="row">
+
+      <app-article-container *ngIf="selectedTab=='MyThings'"
+                             [articleCollection]="articleCollection"></app-article-container>
+      <!--<app-about-me [@fadeAnimation] *ngIf="selectedTab=='AboutMe'"></app-about-me>-->
+      <app-menu (selectNewTab)="changeContent($event)" [showMenu]="showMenu"></app-menu>
+
+      <app-pageination (currentPage)="currentPageNumber($event)" [start]="paginationStart" [end]="paginationEnd"
+                       *ngIf="selectedTab=='MyThings'"></app-pageination>
+
+    </div>
+  </div>
+
+  <app-footer *ngIf="!isPageLoading"></app-footer>
+
+  <app-loader [isLoading]="isPageLoading"></app-loader>
+
+</div>

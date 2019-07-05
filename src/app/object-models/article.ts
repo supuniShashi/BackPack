@@ -4,6 +4,7 @@ export class ArticleBody {
   articleDate: string;
   articleDescription: string;
   articleNumber: number;
+  hotelRef: string;
 
   constructor() {
     this.imageURL = '../../assets/images/404.jpg';
@@ -11,5 +12,6 @@ export class ArticleBody {
     this.articleDate = '';
     this.articleDescription = '';
     this.articleNumber = null;
+    this.hotelRef = '';
   }
 }
