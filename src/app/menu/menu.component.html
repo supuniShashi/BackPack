@@ -29,6 +29,10 @@
                   [ngClass]="(selectedTab=='Guest')?'active':''">
                 <a>Guest</a>
               </li>
+              <li (click)="selectTab('Payment')"
+                  [ngClass]="(selectedTab=='Payment')?'active':''">
+                <a>Payment</a>
+              </li>
             </ul>
           </nav>
         </div>
