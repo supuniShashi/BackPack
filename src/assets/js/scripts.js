@@ -22,7 +22,7 @@
 							<div class="dot active"></div>\
 							<div class="dot active"></div>\
 						</div>',
-				mainClass  : 'mfp-img-mobile',
+				mainClass  : 'mfp-paymentImages-mobile',
 				gallery    : {
 					enabled           : true,
 					navigateByImgClick: true,
