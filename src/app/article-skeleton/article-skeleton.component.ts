@@ -84,7 +84,7 @@ export class ArticleSkeletonComponent implements OnInit {
     this.fileName = file.name;
 
     const path = `images/${file.name}`;
-    const customMetadata = {app: 'LAKSHITHA MADUSHAN'};
+    const customMetadata = {app: 'SupuniH'};
     this.task = this.storage.ref('').child('images/' + this.spinner_inputValue).put(file, {customMetadata});
     this.percentage = this.task.percentageChanges();
 
@@ -153,7 +153,7 @@ export class ArticleSkeletonComponent implements OnInit {
         });
 
         if (this.storageImage) {
-          const customMetadata = {app: 'LAKSHITHA MADUSHAN'};
+          const customMetadata = {app: 'SupuniH'};
           this.task = this.storage.ref('').child(`images/${this.spinnerService.getSpinnerInstantValue()}`).put(this.storageImage.item(0), {customMetadata});
           this.percentage = this.task.percentageChanges();
 

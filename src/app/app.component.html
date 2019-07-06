@@ -30,11 +30,11 @@
   <!--<app-loader [isLoading]="isPageLoading"></app-loader>-->
 
 <!--</div>-->
-<backPackHome *ngIf="isHomePage"></backPackHome>
+<backPackHome *ngIf="!adminMode && isHomePage"></backPackHome>
 
 <router-outlet></router-outlet>
 <!-- Admin Page-->
-<div *ngIf="adminMode" id="admin-content">
+<div *ngIf="adminMode && isHomePage" id="admin-content">
 
   <app-mobile-menu *ngIf="!isPageLoading" (showMobileMenu)="clickMobileMenubtn($event)"></app-mobile-menu>
 
