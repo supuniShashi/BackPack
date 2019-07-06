@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./guest.component.css']
 })
 export class GuestComponent implements OnInit {
-
+  firstName = 'aa';
   constructor() { }
 
   ngOnInit() {
