@@ -20,20 +20,21 @@ export class HotelComponent implements OnInit {
     var urlParams = new URLSearchParams(window.location.search);
     this.hotelRef = urlParams.get('searchRef');
 
-    var article  = fireStore.collection('articles', ref => {
-      return ref.orderBy('articleNumber').where("hotelRef", "==", this.hotelRef);
+    this.articleCollectionFB  = fireStore.collection('articles', ref => {
+      return ref.where("hotelRef", "==", this.hotelRef);
     });
-    this.article = article.valueChanges();
+    this.article = this.articleCollectionFB.valueChanges();
 
     this.article.subscribe((res) => {
       this.articleCollection = res;
-      console.log(' this.article', this.articleCollection)
+      console.log('articleCollection',this.articleCollection)
     });
+
   }
 
   ngOnInit() {
 
-    console.log("$$$$$$$$$$$$$$$$$")
+    console.log("hotelDetailPage")
   }
 
 }

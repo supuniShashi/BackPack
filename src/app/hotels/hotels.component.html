@@ -2,65 +2,20 @@
   <div class="projects">
     <article class="post">
       <div class="post-media">
-        <a>
-          <img src="../../assets/images/posts/1.jpg" alt="About">
-        </a>
-      </div>
-      <div class="post-content">
         <h2 class="title">Hotel</h2>
+        <h3 *ngIf="articleCollection.length > 0" class="title">{{articleCollection[0].articleName}}</h3>
 
         <!-- The Content -->
-        <div class="the-content">
-          <p>There’s nothing quite as frightening as the unknown. These words of former US Secretary of Defense Donald
-            Rumsfeld should be truly terrifying (although the general consensus at the time was that they sounded like
-            nonsense).</p>
-          <p>
-            Etiam egestas velit dolor, a pretium elit finibus a. Donec tempus purus vel consequat pulvinar. Pellentesque
-            at
-            eros nec felis consectetur consequat in et turpis. Donec at erat venenatis, imperdiet sapien quis, molestie
-            nisi. Phasellus metus nisi, placerat quis scelerisque sit amet, dapibus eget massa. Nunc egestas congue
-            metus.
-            Fusce facilisis purus quis diam fermentum, vitae bibendum metus porttitor.
-          </p>
-          <p>
-            Suspendisse eleifend nulla ac rhoncus egestas. Sed vehicula ipsum vitae finibus condimentum. Phasellus
-            rhoncus,
-            nulla et sodales sodales, massa nisl volutpat odio, ac sodales risus metus sollicitudin odio.
-          </p>
-          <blockquote>
-
-            <p>
-              <i class="blockquote__before fas fa-quote-left"></i>
-              Donec eget ipsum sagittis, varius leo non, mattis eros. Donec eleifend, urna ut elementum tincidunt,
-              velit
-              nibh pulvinar odio, ac tristique mauris magna sit amet arcu. Aenean vestibulum gravida rutrum. Morbi vel
-              augue
-              a lectus ultricies varius nec id elit.
-              <i class="blockquote__after fas fa-quote-right"></i>
-            </p>
-            <footer>BackPack</footer>
-          </blockquote>
-          <div class="post-footer">
-
-            <div class="post-share-wrap">
-              <div class="post-share">
-                <a href="#" title="Linkedin">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="#" title="Facebook">
-                  <i class="fab fa-facebook"></i>
-                </a>
-                <a href="#" title="Google Plus">
-                  <i class="fab fa-google-plus-square"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-article-container *ngIf="articleCollection"
+                               [articleCollection]="articleCollection"></app-article-container>
         <!-- End The Content -->
 
+              <div>
+                <a>
+                  <img src="../../assets/images/posts/4.jpg" alt="About">
+                </a>
+              </div>
       </div>
-
     </article>
   </div>
 </div>
