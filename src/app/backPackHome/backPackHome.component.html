@@ -8,6 +8,8 @@
       <app-article-container *ngIf="selectedTab=='MyThings'"
                              [articleCollection]="articleCollection"></app-article-container>
       <!--<app-about-me [@fadeAnimation] *ngIf="selectedTab=='AboutMe'"></app-about-me>-->
+      <app-guest [@fadeAnimation] *ngIf="selectedTab=='Guest'"></app-guest>
+
       <app-menu (selectNewTab)="changeContent($event)" [showMenu]="showMenu"></app-menu>
 
       <app-pageination (currentPage)="currentPageNumber($event)" [start]="paginationStart" [end]="paginationEnd"

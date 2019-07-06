@@ -28,6 +28,8 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {RouterModule, Routes} from "@angular/router";
 import {BackPackHomeComponent} from "./backPackHome/backPackHome.component";
+import { GuestComponent } from './guest/guest.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 const appRoutes: Routes = [
@@ -65,7 +67,9 @@ const appRoutes: Routes = [
     FileSizePipePipe,
     DropZoneDirectiveDirective,
     ButtonHoldDirective,
-    AdminLoginComponent
+    AdminLoginComponent,
+    GuestComponent,
+    PaymentComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {}),

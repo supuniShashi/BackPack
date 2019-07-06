@@ -25,6 +25,10 @@
                   [ngClass]="(selectedTab=='CatchMe')?'active':''">
                 <a>Contact Us</a>
               </li>
+              <li (click)="selectTab('Guest')"
+                  [ngClass]="(selectedTab=='Guest')?'active':''">
+                <a>Guest</a>
+              </li>
             </ul>
           </nav>
         </div>

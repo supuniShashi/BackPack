@@ -1,0 +1,91 @@
+<div class="col-md-9 col-md-offset-3">
+  <div class="projects">
+    <!-- Default form register -->
+    <form class="text-center border border-light p-5">
+
+      <p class="h4 mb-4">Enter Guest Info</p>
+
+      <div class="row">
+        <div class="col-md-2 form-group">
+          <label>Title</label>
+          <select [(ngModel)]="title" name="defaultGuestFormTitle" >
+            <option>Mr</option>
+            <option>Mrs</option>
+            <option>Miss</option>
+          </select></div>
+        <div class="col-md-3 form-group">
+          <label>First name</label>
+          <input [(ngModel)]="firstName" type="text" name="defaultGuestFormFirstName" class="form-control">
+        </div>
+        <div class="col-md-3 form-group">
+          <label>Last name</label>
+          <input [(ngModel)]="lastName" type="text" name="defaultGuestFormLastName" class="form-control">
+        </div>
+        <div class="col-md-4 form-group">
+          <label>Date of Birth</label>
+          <input [(ngModel)]="dob" type="date" name="defaultGuestFormDateofBirth" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 form-group">
+          <label>Email</label>
+          <input [(ngModel)]="email" type="email" name="defaultGuestFormEmail" class="form-control">
+        </div>
+        <div class="col-md-4 form-group">
+          <label>Phone number</label>
+          <input [(ngModel)]="phone" type="number" name="defaultGuestFormPhone" class="form-control"
+                 aria-describedby="defaultRegisterFormPhoneHelpBlock">
+        </div>
+        <div class="col-md-4 form-group">
+          <label>Nationality</label>
+          <select [(ngModel)]="nationality" name="defaultGuestFormNationality">
+            <option>Foreign</option>
+            <option>Sri Lankan</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 form-group">
+          <label>Country of Residence</label>
+          <select [(ngModel)]="country" name="defaultGuestFormCountry">
+            <option>Sri Lanka</option>
+          </select>
+        </div>
+      </div>
+
+      <label>Special Remarks</label>
+
+
+
+      <div class="custom-control custom-checkbox">
+        <input [(ngModel)]="houseKeeping" type="checkbox" class="custom-control-input"
+               name="defaultGuestFormHouseKeeping" value="false">
+        <label class="custom-control-label">Requesting Daily House Keeping</label>
+      </div>
+
+      <div class="custom-control custom-checkbox">
+        <input [(ngModel)]="meal" type="checkbox" class="custom-control-input" name="defaultGuestFormMeals"
+               value="false">
+        <label class="custom-control-label">Requesting meal at a room</label>
+      </div>
+
+      <div class="custom-control custom-checkbox">
+        <input [(ngModel)]="wheelChair" type="checkbox" class="custom-control-input" name="defaultGuestFormWheelChair"
+               value="false">
+        <label class="custom-control-label">Wheelchair</label>
+      </div>
+
+      <hr>
+
+      <div class="custom-control custom-checkbox">
+        <input [(ngModel)]="terms" type="checkbox" class="custom-control-input" name="defaultGuestFormTerms"
+               value="false">
+        <label class="custom-control-label">I have read and accept the <a>terms and conditions</a></label>
+      </div>
+
+      <input (click)="updateGuestDatabase()" type="button" class="custom-control-input" id="defaultGuestFormSubmit" value="Submit">
+
+    </form>
+    <!-- Default form register -->
+  </div>
+</div>
